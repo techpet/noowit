@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: NooWit
-Plugin URI: http://www.techpet.gr
+Plugin URI: http://techpet.github.com/noowit
 Description: Plugin for posting to personal NooWit account
 Version: 0.5
 Author: Koutsaftikis Ioannis
