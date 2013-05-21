@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: NooWit
-Plugin URI: http://www.techpet.gr
+Plugin URI: http://techpet.github.com/noowit
 Description: Plugin for posting to personal NooWit account
 Version: 0.5
 Author: Koutsaftikis Ioannis
@@ -315,9 +315,9 @@ Author URI: http://www.techpet.gr
 
 
 		$args = array();
-		$args["title"] = addslashes($post_title);
-		$args["content"] = addslashes($content);
-		$args["category"] = addslashes($cat_name);
+		$args["title"] = urldecode($post_title);
+		$args["content"] = $content;
+		$args["category"] = urldecode($cat_name);
 
 		$request = new RestRequest('http://www.noowit.com/token_auth/article?token='.$token, 'POST',$args); 
 		$request->execute(); 
