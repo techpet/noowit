@@ -232,9 +232,11 @@ Author URI: http://www.techpet.gr
 			    }
 			});
 			
-			//console.log(values);
+			/*console.log(values);
+			console.log(jQuery('.attachment-post-thumbnail').attr('src'));*/
 			
 			var content = values['content'];
+			var img = jQuery('.attachment-post-thumbnail').attr('src');
 			
 			if (tinymce.activeEditor){
 				content = tinymce.activeEditor.getContent();
@@ -246,7 +248,8 @@ Author URI: http://www.techpet.gr
 				id: values['post_ID'],
 				title: values['post_title'],
 				content: content,
-				categories: values['post_category[]']
+				categories: values['post_category[]'],
+				image: img
 				
 			}
 			
@@ -296,6 +299,7 @@ Author URI: http://www.techpet.gr
 		$category_ids =  $_POST['categories'];
 		$post_title = $_POST['title'];
 		$content = $_POST['content'];
+		$image = $_POST['image'];
 		
 		
 		$category_ids_array = explode(',' , $category_ids);
@@ -318,6 +322,7 @@ Author URI: http://www.techpet.gr
 		$args["title"] = urldecode($post_title);
 		$args["content"] = $content;
 		$args["category"] = urldecode($cat_name);
+		$args["image"] = $image;
 
 		$request = new RestRequest('http://www.noowit.com/token_auth/article?token='.$token, 'POST',$args); 
 		$request->execute(); 
